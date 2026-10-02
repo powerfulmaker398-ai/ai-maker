@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "main", "master", "develop" ]
 
+defaults:
+  run:
+    working-directory: ./AURA_V3_Phase3
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,6 +24,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
           cache: 'gradle'
+          build-path: 'AURA_V3_Phase3'
 
       - name: Make Gradle Wrapper Executable
         run: chmod +x gradlew
@@ -35,5 +40,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-reports
-          path: app/build/reports/tests/
-          
+          path: AURA_V3_Phase3/app/build/reports/tests/
