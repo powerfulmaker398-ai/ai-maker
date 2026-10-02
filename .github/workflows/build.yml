@@ -23,7 +23,9 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
           cache: 'gradle'
-          cache-dependency-path: 'AURA_V3_Phase3/**/*.gradle*'
+          cache-dependency-path: |
+            **/*.gradle*
+            **/gradle-wrapper.properties
 
       - name: Make Gradle Wrapper Executable
         run: chmod +x gradlew
